@@ -1,2 +1,6 @@
 node_modules/
 data/
+*.DS_Store
+public/lds/
+public/build/
+public/ext/

@@ -1,0 +1,15 @@
+{
+	'userId': 'squistbe',
+	'firstName': 'Spencer',
+	'lastName': 'Quistberg',
+	'email': 'squistbe@gmail.com',
+	'companyName': '',
+	'password': '',
+	'confirmPassword': '',
+	'street1': '6931 Maria Way',
+	'street2': '',
+	'city': 'Herriman',
+	'state': 'UT',
+	'postalCode': '84096',
+	'country': 'USA'
+}

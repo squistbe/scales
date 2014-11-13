@@ -47,9 +47,7 @@ Ext.define('IMS.view.grid.Users', {
 	}],
 	tbar: [{
 		text: 'New User',
-		listener: {
-			click: 'newUser'
-		}
+		handler: 'newUser'
 	}, '->', {
 		xtype: 'combo',
 		triggerCls: 'x-form-search-trigger'

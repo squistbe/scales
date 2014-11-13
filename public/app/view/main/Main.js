@@ -1,6 +1,6 @@
 Ext.define('IMS.view.main.Main', {
   extend: 'Ext.container.Viewport',
-  requires: ['IMS.view.grid.Users', 'IMS.view.grid.UsersController', 'IMS.view.form.User'],
+  requires: ['IMS.view.grid.Users', 'IMS.view.grid.UsersController', 'IMS.view.form.User', 'IMS.view.form.UserController'],
   layout: {
     type: 'border'
   },
@@ -30,7 +30,7 @@ Ext.define('IMS.view.main.Main', {
               closable: true,
               store: Ext.create('IMS.store.Users')
             });
-            mainTabPanel.setActiveTab(0);
+            mainTabPanel.setActiveTab(mainTabPanel.items.length - 1);
           }
         }]
       }, '->', {

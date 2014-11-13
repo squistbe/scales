@@ -1,13 +1,16 @@
 Ext.define('IMS.view.form.User', {
 	extend: 'Ext.form.Panel',
 	alias: 'widget.userform',
-	controller: 'userformcontroller',
+	controller: 'usercontroller',
 	bodyPadding: 10,
+	style: {
+		borderTop: '1px solid #cecece'
+	},
 	fieldDefaults: {
 		labelAlign: 'right',
 		msgTarget: 'side'
 	},
-	buttons: [{
+	tbar: [{
 		text: 'Save',
 		handler: 'saveUser'
 	}],
@@ -39,7 +42,7 @@ Ext.define('IMS.view.form.User', {
 			name: 'lastName'
 		}, {
 			fieldLabel: 'Company',
-			name: 'company'
+			name: 'companyName'
 		}, {
 			fieldLabel: 'Email',
 			name: 'email',

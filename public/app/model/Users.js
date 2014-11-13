@@ -1,6 +1,7 @@
 Ext.define('IMS.model.Users', {
 	extend: 'Ext.data.Model',
 	fields: [
+		{name: '_id', serialize: function () { delete this; }},
 		'userId', 
 		'firstName', 
 		'lastName', 

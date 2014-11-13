@@ -3,7 +3,7 @@ Ext.define('IMS.view.grid.Users', {
 	alias: 'widget.usergrid',
 	controller: 'userlistcontroller',
 	listeners: {
-		cellclick: 'gridCellClick'
+		cellclick: 'viewUser'
 	},
 	style: {
 		borderTop: '1px solid #cecece'
@@ -42,12 +42,13 @@ Ext.define('IMS.view.grid.Users', {
 		menuDisabled: true,
 		hideable: false,
 		items: [{
-			icon: 'resources/images/icons/delete-gray.png'
+			icon: 'resources/images/icons/delete-gray.png',
+			handler: 'deleteUser'
 		}]
 	}],
 	tbar: [{
 		text: 'New User',
-		handler: 'newUser'
+		handler: 'createUser'
 	}, '->', {
 		xtype: 'combo',
 		triggerCls: 'x-form-search-trigger'

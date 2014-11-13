@@ -27,7 +27,7 @@ Ext.define('IMS.model.Users', {
 			create: '/users/adduser',
 			read: '/users/userlist',
 			update: '/users/updateuser',
-			delete: '/users/deleteuser'
+			destroy: '/users/deleteuser'
 		}
 	}
 });

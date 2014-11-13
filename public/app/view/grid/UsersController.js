@@ -2,14 +2,17 @@ Ext.define('IMS.view.grid.UsersController', {
 	extend: 'Ext.app.ViewController',
 	alias: 'controller.userlistcontroller',
 
-	getMainPanel: function (cmp) {
-		return cmp.up('tabpanel#mainTabPanel');
+	createUser: function (button) {
+		this.addRecordToUserForm(Ext.create('IMS.model.Users'), this.getMainPanel(button));
 	},
-	gridCellClick: function (view, td, cellIndex, record, tr, rowIndex) {
+	viewUser: function (view, td, cellIndex, record, tr, rowIndex) {
 		this.addRecordToUserForm(record, this.getMainPanel(view));
 	},
-	newUser: function (button) {
-		this.addRecordToUserForm(Ext.create('IMS.model.Users'), this.getMainPanel(button));
+	deleteUser: function (view, rowIndex, cellIndex, column, e, record, tr) {
+		record.erase()
+	},
+	getMainPanel: function (cmp) {
+		return cmp.up('tabpanel#mainTabPanel');
 	},
 	addRecordToUserForm: function (record, mainPanel) {
 		if (record && mainPanel) {

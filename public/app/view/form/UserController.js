@@ -7,6 +7,13 @@ Ext.define('IMS.view.form.UserController', {
 				record = form.getRecord();
 
 		form.updateRecord();
-		record.save();
+		record.save({
+			scope: form,
+			callback: function (records, operation, success) {
+				if (success) {
+					this.setTitle(record.get('lastName') + ', ' + record.get('firstName'));
+				}
+			}
+		});
 	}
 })

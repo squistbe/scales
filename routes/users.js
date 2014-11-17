@@ -5,17 +5,24 @@ var router = express.Router();
 router.post('/adduser', function(req, res) {
 	var db = req.db;
 	db.collection('userlist').insert(req.body, function(err, result){
-		res.send(
-			(err === null) ? { msg: '' } : { msg: err }
-			);
+		res.json(result);
 	});
 });
 
 // Read
 router.get('/userlist', function(req, res) {
-	var db = req.db;
-	db.collection('userlist').find().toArray(function (err, items) {
-		res.json(items);
+	var db = req.db,
+			userList = db.collection('userlist').find(),
+			total;
+	userList.count(function (err, items) {
+		total = items;
+	});
+	userList.skip(parseInt(req.query.start)).limit(parseInt(req.query.limit)).toArray(function (err, items) {
+		res.json({
+			success: true,
+			total: total,
+			items: items
+		});
 	});
 });
 router.get('/userlist/:id', function(req, res) {

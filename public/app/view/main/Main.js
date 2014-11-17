@@ -22,13 +22,23 @@ Ext.define('IMS.view.main.Main', {
           text: 'Users',
           scope: this,
           handler: function () {
-            var mainTabPanel = this.getComponent('centerPanel').getComponent('mainTabPanel');
+            var mainTabPanel = this.getComponent('centerPanel').getComponent('mainTabPanel'),
+                userStore = Ext.create('IMS.store.Users');
 
             mainTabPanel.add({
               xtype: 'usergrid', 
               title: 'Users',
               closable: true,
-              store: Ext.create('IMS.store.Users')
+              store: userStore,
+              dockedItems: [{
+                xtype: 'pagingtoolbar',
+                store: userStore,
+                dock: 'top',
+                displayInfo: true,
+                style: {
+                  borderBottom: '1px solid #cecece !important'
+                }
+              }]
             });
             mainTabPanel.setActiveTab(mainTabPanel.items.length - 1);
           }

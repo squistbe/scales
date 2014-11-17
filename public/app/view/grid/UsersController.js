@@ -18,7 +18,9 @@ Ext.define('IMS.view.grid.UsersController', {
 		if (record && mainPanel) {
 			mainPanel.add({
 				xtype: 'userform',
-				title: record.phantom ? 'New User' : record.get('lastName') + ', ' + record.get('firstName'),
+				viewModel: {
+					data: record.data
+				},
 				closable: true
 			});
 			mainPanel.setActiveTab(mainPanel.items.length - 1);

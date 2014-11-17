@@ -3,6 +3,9 @@ Ext.define('IMS.view.form.User', {
 	alias: 'widget.userform',
 	controller: 'usercontroller',
 	bodyPadding: 10,
+	bind: {
+		title: '{lastName}, {firstName}'
+	},
 	style: {
 		borderTop: '1px solid #cecece'
 	},

@@ -12,12 +12,24 @@ router.post('/adduser', function(req, res) {
 // Read
 router.get('/userlist', function(req, res) {
 	var db = req.db,
+			sort = req.query.sort,
+			sorter = {},
 			userList = db.collection('userlist').find(),
 			total;
+
+	if (sort) {
+		sort = JSON.parse(decodeURIComponent(sort));
+
+		for (var i = 0; i < sort.length; i++) {
+			sorter[sort[i].property] = sort[i].direction === 'ASC' ? 1 : -1;	
+		}
+	} else {
+		sorter = {'_id': 1};
+	}
 	userList.count(function (err, items) {
 		total = items;
 	});
-	userList.skip(parseInt(req.query.start)).limit(parseInt(req.query.limit)).toArray(function (err, items) {
+	userList.sort(sorter).skip(parseInt(req.query.start)).limit(parseInt(req.query.limit)).toArray(function (err, items) {
 		res.json({
 			success: true,
 			total: total,

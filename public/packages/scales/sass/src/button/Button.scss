@@ -1,0 +1,10 @@
+@include extjs-button-toolbar-small-ui(
+  $ui: 'save-success',
+  $background-color: green,
+  $color: white,
+  $color-focus: white,
+  $color-over: white,
+  $color-pressed: white,
+  $glyph-color: white,
+  $glyph-opacity: 1
+);

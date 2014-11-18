@@ -2,6 +2,7 @@ Ext.define('IMS.view.grid.Users', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.usergrid',
 	controller: 'userlistcontroller',
+	requires: ['IMS.view.form.field.GridQuery'],
 	listeners: {
 		cellclick: 'viewUser'
 	},
@@ -45,12 +46,5 @@ Ext.define('IMS.view.grid.Users', {
 			icon: 'resources/images/icons/delete-gray.png',
 			handler: 'deleteUser'
 		}]
-	}],
-	tbar: [{
-		text: 'New User',
-		handler: 'createUser'
-	}, '->', {
-		xtype: 'combo',
-		triggerCls: 'x-form-search-trigger'
 	}]
 });

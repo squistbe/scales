@@ -28,5 +28,15 @@ Ext.define('IMS.view.grid.UsersController', {
 			mainPanel.getActiveTab().loadRecord(record);
 			mainPanel.getActiveTab().getForm().reset();
 		}
+	},
+	clearFilter: function (button) {
+		var filterBox = button.previousSibling('combo');
+
+		filterBox.clearValue();
+		this.getView().getStore().load();
+	},
+	clearSort: function () {
+		this.getView().getStore().getSorters().clear();
+		this.getView().getStore().load();
 	}
 });

@@ -9,11 +9,13 @@ Ext.define('IMS.view.form.UserController', {
 		form.updateRecord();
 		record.save({
 			scope: form,
+			button: button,
 			callback: function (records, operation, success) {
 				if (success) {
 					this.setTitle(record.get('lastName') + ', ' + record.get('firstName'));
 				}
 			}
 		});
-	}
+	},
+
 })

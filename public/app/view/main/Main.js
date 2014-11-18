@@ -34,10 +34,21 @@ Ext.define('IMS.view.main.Main', {
                 xtype: 'pagingtoolbar',
                 store: userStore,
                 dock: 'top',
-                displayInfo: true,
-                style: {
-                  borderBottom: '1px solid #cecece !important'
-                }
+                prependButtons: true,
+                items: [{
+                  xtype: 'gridquery',
+                  store: userStore,
+                  valueField: 'userId'
+                }, '-', {
+                  text: 'Clear Filter',
+                  handler: 'clearFilter'
+                }, {
+                  text: 'Clear Sort',
+                  handler: 'clearSort'
+                }, {
+                  text: 'New User',
+                  handler: 'createUser'
+                }, '->']
               }]
             });
             mainTabPanel.setActiveTab(mainTabPanel.items.length - 1);

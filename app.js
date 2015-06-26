@@ -10,7 +10,7 @@ var users = require('./routes/users');
 
 // database
 var mongo = require('mongoskin');
-var db = mongo.db("mongodb://localhost:27017/scales", {native_parser:true});
+var db = mongo.db("mongodb://10.30.38.98:27017/scales", {native_parser:true});
 
 var app = express();
 

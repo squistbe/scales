@@ -56,6 +56,7 @@ router.get('/userlist', function(req, res) {
 // get a user by id
 router.get('/userlist/:id', function(req, res) {
 	var db = req.db;
+	console.log(req.params)
 	db.collection('userlist').findById(req.params.id, function (err, user) {
 		res.json(user);
 	});

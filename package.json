@@ -11,10 +11,9 @@
     "debug": "~0.7.4",
     "express": "~4.0.0",
     "express-paginate": "0.0.4",
-    "jade": "*",
-    "mongodb": "*",
+    "mongodb": "~1.4",
     "mongoskin": "*",
-    "morgan": "~1.0.0",
+    "morgan": "*",
     "serve-favicon": "*"
   }
 }

@@ -27,5 +27,6 @@
     "morgan": "*",
     "multer": "~0.1.8",
     "bower": "*"
-  }
+  },
+  "cacheDirectories": ["node_modules", "bower_components"]
 }

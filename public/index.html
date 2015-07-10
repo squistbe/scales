@@ -1,5 +1,39 @@
 <!DOCTYPE html>
-<html>
-<head></head>
-<body>test</body>
+<html ng-app="scales">
+<head>
+    <!-- Angular Material CSS -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css">
+
+    <!-- Angular Dependencies -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+
+
+    <!-- Angular Material Javascript -->
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-material-icons/angular-material-icons.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/users/userController.js"></script>
+    <script src="app/users/usersService.js"></script>
+
+  </head>
+  <body>
+  	<div ng-controller="users">
+		<md-list>
+	      <md-list-item class="md-3-line" ng-repeat="item in userList.items" role="listitem">
+	        <img ng-src="{{getRandomUrl()}}" class="md-avatar">
+	        <!-- <ng-md-icon icon="person" style="fill: #4173DF; background-color: #9FC3FF;" size="40"></ng-md-icon> -->
+	        <div class="md-list-item-text">
+	          <h3>{{item.lastName}}, {{item.firstName}}</h3>
+	          <h4>{{item.ssn}}</h4>
+	        </div>
+	        <md-divider ng-if="!$last"></md-divider>
+	      </md-list-item>
+	    </md-list>
+  	</div>
+  </body>
 </html>

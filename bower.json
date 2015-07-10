@@ -1,0 +1,27 @@
+{
+  "name": "scales",
+  "version": "0.0.0",
+  "authors": [
+    "Spencer Quistberg <squistbe@gmail.com>"
+  ],
+  "main": "src/index.html",
+  "homepage": "https://github.com/squistbe/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.0",
+    "angular-animate": "1.4.0",
+    "angular-aria": "1.4.0",
+    "angular-resource": "1.4.0",
+    "angular-mocks": "1.4.0",
+    "angular-material": "0.10.0",
+    "angular-material-icons":"0.5.0",
+    "jquery-ui": "~1.11.2"
+  }
+}

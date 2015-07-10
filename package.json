@@ -12,8 +12,8 @@
     "Spencer Quistberg <squistbe@gmail.com>"
   ],
   "scripts": {
-    "start": "node index.js",
-    "postinstall": "bower install"
+    "start": "node ./bin/www",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
@@ -25,6 +25,7 @@
     "mongodb": "~1.4",
     "mongoskin": "*",
     "morgan": "*",
-    "multer": "~0.1.8"
+    "multer": "~0.1.8",
+    "bower": "*"
   }
 }

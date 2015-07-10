@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "start": "node ./bin/www",
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "postinstall": "bower install"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
@@ -25,7 +25,6 @@
     "mongodb": "~1.4",
     "mongoskin": "*",
     "morgan": "*",
-    "multer": "~0.1.8",
-    "bower": "*"
+    "multer": "~0.1.8"
   }
 }

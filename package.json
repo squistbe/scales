@@ -27,7 +27,8 @@
     "morgan": "*",
     "multer": "~0.1.8",
     "bower": "*",
-    "stylus": "*"
+    "stylus": "*",
+    "cloudinary": "*"
   },
   "cacheDirectories": ["node_modules", "bower_components"]
 }

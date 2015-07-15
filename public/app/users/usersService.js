@@ -5,12 +5,18 @@
 
     users.$inject = ['$resource'];
     function users($resource) {
-        return $resource('users/userlist/:id', {}, {
+        return $resource('users/:id', {}, {
             query: {
                 method: 'GET'
             },
-            edit: { 
+            update: { 
                 method: 'PUT'
+            },
+            create: {
+                method: 'POST'
+            },
+            remove: {
+                method: 'DELETE'
             }
         });
     }

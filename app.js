@@ -1,16 +1,20 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express         = require('express');
+var path            = require('path');
+var logger          = require('morgan');
+var cookieParser    = require('cookie-parser');
+var bodyParser      = require('body-parser');
 
 // routes
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes  = require('./routes/index');
+var users = require('./routes/users/users');
 
 // database
-var mongo = require('mongoskin');
-var db = mongo.db("mongodb://heroku_km21fr48:3e4kr9rpjqqccruoa1qj2a04uv@ds047732.mongolab.com:47732/heroku_km21fr48", {native_parser:true});
+var dbUri = 'mongodb://heroku_km21fr48:3e4kr9rpjqqccruoa1qj2a04uv@ds047732.mongolab.com:47732/heroku_km21fr48';
+var mongoose = require('mongoose');
+mongoose.connect(dbUri, function (err, res) {
+  if (err) console.log ('ERROR connecting to: ' + dbUri + '. ' + err);
+  else console.log ('Succeeded connected to: ' + dbUri);
+});
 
 var app = express();
 
@@ -19,12 +23,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Make our db accessible to our router
-app.use(function(req, res, next){
-    req.db = db;
-    next();
-});
 
 app.use('/', routes);
 app.use('/users', users);

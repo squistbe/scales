@@ -29,7 +29,8 @@
     "stylus": "*",
     "cloudinary": "*",
     "underscore": "*",
-    "apidoc": "*"
+    "apidoc": "*",
+    "redis": "0.12.x"
   },
   "cacheDirectories": ["node_modules", "bower_components"],
   "apidoc": {

@@ -3,8 +3,6 @@ var path            = require('path');
 var logger          = require('morgan');
 var cookieParser    = require('cookie-parser');
 var bodyParser      = require('body-parser');
-var redis           = require('redis');
-var url             = require('url');
 
 // routes
 var routes  = require('./routes/index');

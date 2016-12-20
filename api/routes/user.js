@@ -1,5 +1,5 @@
 module.exports = function(app) {
-    var User = app.models.users;
+    var User = app.middleware.user;
 
     /**
      * @api {POST} /users Create new user
@@ -29,16 +29,7 @@ module.exports = function(app) {
      *     curl -X GET http://localhost:3000/users/
      *
      */
-    app.get('/', function(req, res, next) {
-        User.find(function (err, userlist) {
-            if (err) return next(err);
-            res.json({
-                success: true,
-                total: userlist.length,
-                items: userlist
-            });
-        });
-    });
+    app.get('/', User.getAll);
 
     /**
      * @api {GET} /users/:id Get user by id
@@ -49,12 +40,7 @@ module.exports = function(app) {
      * @apiExample {curl} Example usage:
      *     curl -X GET http://localhost:3000/users/559f3355ccee0d035611e142
      */
-    app.get('/:id', function(req, res, next) {
-        User.findById(req.params.id, function (err, post) {
-            if (err) return next(err);
-            res.json(post);
-        });
-    });
+    app.get('/:id', User.getById);
 
     /**
      * @api {PUT} /users/:id Update user by id

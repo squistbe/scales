@@ -1,5 +1,5 @@
 {
-  "name": "scales",
+  "name": "timli",
   "version": "0.0.1",
   "private": true,
   "repository": {
@@ -16,22 +16,25 @@
     "postinstall": "./node_modules/bower/bin/bower install && apidoc -i routes/ -o public/apidoc/server/"
   },
   "dependencies": {
+    "apidoc": "*",
     "body-parser": "~1.0.0",
+    "bower": "*",
+    "cloudinary": "*",
+    "consign": "^0.1.2",
     "cookie-parser": "~1.0.1",
     "credential": "^0.2.6",
     "debug": "~0.7.4",
     "express": "~4.0.0",
     "express-paginate": "0.0.4",
+    "lodash": "^4.17.2",
     "mongodb": "~1.4",
-    "mongoose": "*",
-    "morgan": "*",
-    "bower": "*",
-    "stylus": "*",
-    "cloudinary": "*",
-    "underscore": "*",
-    "apidoc": "*"
+    "mongoose": "^4.7.3",
+    "morgan": "*"
   },
-  "cacheDirectories": ["node_modules", "bower_components"],
+  "cacheDirectories": [
+    "node_modules",
+    "bower_components"
+  ],
   "apidoc": {
     "title": "API Docs"
   }

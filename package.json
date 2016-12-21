@@ -4,25 +4,20 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/squistbe/scales"
+    "url": "https://github.com/squistbe/timli"
   },
-  "homepage": "https://github.com/squistbe/scales",
+  "homepage": "https://github.com/squistbe/timli",
   "author": "Spencer Quistberg <squistbe@gmail.com>",
   "contributors": [
     "Spencer Quistberg <squistbe@gmail.com>"
   ],
   "scripts": {
-    "start": "node ./bin/www",
-    "postinstall": "./node_modules/bower/bin/bower install && apidoc -i routes/ -o public/apidoc/server/"
+    "start": "node ./bin/www"
   },
   "dependencies": {
-    "apidoc": "*",
     "body-parser": "~1.0.0",
-    "bower": "*",
-    "cloudinary": "*",
     "consign": "^0.1.2",
     "cookie-parser": "~1.0.1",
-    "credential": "^0.2.6",
     "debug": "~0.7.4",
     "express": "~4.0.0",
     "express-paginate": "0.0.4",
@@ -32,10 +27,6 @@
     "morgan": "*"
   },
   "cacheDirectories": [
-    "node_modules",
-    "bower_components"
-  ],
-  "apidoc": {
-    "title": "API Docs"
-  }
+    "node_modules"
+  ]
 }

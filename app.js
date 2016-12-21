@@ -15,11 +15,11 @@ consign({cwd: 'api'})
     .into(app);
 
 // database
-var DB_URI = 'mongodb://heroku_km21fr48:3e4kr9rpjqqccruoa1qj2a04uv@ds047732.mlab.com:47732/heroku_km21fr48';
-mongoose.connect(DB_URI, function (err, res) {
-  if (err) console.log ('ERROR connecting to: ' + DB_URI + '. ' + err);
-  else console.log ('Succeeded connected to: ' + DB_URI);
-});
+//var DB_URI = 'mongodb://heroku_km21fr48:3e4kr9rpjqqccruoa1qj2a04uv@ds047732.mlab.com:47732/heroku_km21fr48';
+//mongoose.connect(DB_URI, function (err, res) {
+//  if (err) console.log ('ERROR connecting to: ' + DB_URI + '. ' + err);
+//  else console.log ('Succeeded connected to: ' + DB_URI);
+//});
 
 app.use(logger('dev'));
 app.use(bodyParser.json());

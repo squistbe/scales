@@ -22,7 +22,7 @@
     "express": "~4.0.0",
     "express-paginate": "0.0.4",
     "lodash": "^4.17.2",
-    "mongodb": "^2.2.16",
+    "mongodb": "^2.2.19",
     "mongoose": "^4.7.3",
     "morgan": "*"
   },

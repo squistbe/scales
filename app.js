@@ -15,8 +15,7 @@ consign({cwd: 'api'})
     .into(app);
 
 // database
-console.log(process.env.MONGODB_URI)
-var DB_URI = process.env.MONGODB_URI;
+var DB_URI = 'mongodb://heroku_94ll6b5j:17cnv6vugqt2qnqc2tso8190gi@ds141108.mlab.com:41108/heroku_94ll6b5j';
 mongoose.connect(DB_URI, function (err, res) {
   if (err) console.log ('ERROR connecting to: ' + DB_URI + '. ' + err);
   else console.log ('Succeeded connected to: ' + DB_URI);

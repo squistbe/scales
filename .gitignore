@@ -19,6 +19,7 @@
 npm-debug.log
 testem.log
 /typings
+/data
 
 #System Files
 .DS_Store

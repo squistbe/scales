@@ -3,58 +3,65 @@ var logger          = require('morgan');
 var cookieParser    = require('cookie-parser');
 var bodyParser      = require('body-parser');
 var mongoose        = require('mongoose');
-var consign         = require('consign');
 var express         = require('express');
-var app             = express();
-
-consign({cwd: 'api'})
-    .include('schema')
-    .then('models')
-    .then('middleware')
-    .then('routes')
-    .into(app);
+var validator       = require('express-validator');
+var session         = require('express-session');
+var passport        = require('passport');
+var LocalStrategy   = require('passport-local').Strategy;
 
 // database
-var DB_URI = 'mongodb://heroku_94ll6b5j:17cnv6vugqt2qnqc2tso8190gi@ds141108.mlab.com:41108/heroku_94ll6b5j';
-mongoose.connect(DB_URI, function (err, res) {
-  if (err) console.log ('ERROR connecting to: ' + DB_URI + '. ' + err);
-  else console.log ('Succeeded connected to: ' + DB_URI);
+mongoose.connect(process.env.MONGODB_URI, function (err, res) {
+  if (err) console.log ('ERROR connecting db: ' + err);
+  else console.log ('Connected to db');
 });
+
+var index = require('./routes/index');
+var user = require('./routes/user');
+
+var app = express();
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-/// catch 404 and forwarding to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
+// session
+app.use(session({
+    secret: process.env.SECURE_KEY,
+    saveUninitialized: true,
+    resave: true
+}));
 
-/// error handlers
+// passport init
+app.use(passport.initialize());
+app.use(passport.session());
 
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
+// express validator
+app.use(validator({
+    errorFormatter: function(param, msg, value) {
+        var namespace = param.split('.')
+            , root    = namespace.shift()
+            , formParam = root;
 
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
+        while(namespace.length) {
+            formParam += '[' + namespace.shift() + ']';
+        }
+        return {
+            param : formParam,
+            msg   : msg,
+            value : value
+        };
+    }
+}));
+
+app.use('/', index);
+app.use('/user', user);
+
+// set port
+app.set('port', (process.env.PORT || 3000));
+
+app.listen(app.get('port'), function(){
+    console.log('Server started on port '+ app.get('port'));
 });
 
 module.exports = app;

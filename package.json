@@ -12,21 +12,23 @@
     "Spencer Quistberg <squistbe@gmail.com>"
   ],
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node app.js"
   },
   "dependencies": {
-    "body-parser": "~1.0.0",
-    "consign": "^0.1.2",
-    "cookie-parser": "~1.0.1",
-    "debug": "~0.7.4",
-    "express": "~4.0.0",
-    "express-paginate": "0.0.4",
-    "lodash": "^4.17.2",
-    "mongodb": "^2.2.19",
-    "mongoose": "^4.7.3",
-    "morgan": "*"
-  },
-  "cacheDirectories": [
-    "node_modules"
-  ]
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "debug": "*",
+    "express": "*",
+    "express-paginate": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "lodash": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "morgan": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*"
+  }
 }
